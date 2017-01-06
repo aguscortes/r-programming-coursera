@@ -16,5 +16,5 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
                 currentFile <- read.csv(i)
                 data <-  c(data, currentFile[[pollutant]])
         }
-        print(mean(data, na.rm=TRUE))
+        print(round(mean(data, na.rm=TRUE), digits = 3))
 }
