@@ -6,11 +6,10 @@ corr <- function(directory, threshold = 0) {
         ## number of completely observed observations (on all
         ## variables) required to compute the correlation between
         ## nitrate and sulfate; the default is 0        
-        library(stringr)
         data <- vector()
         final <- numeric(0)
         
-        dataPaths <- file.path(directory, paste(str_pad(1:332, 3, "left", "0"), ".csv", sep = ""))
+        dataPaths <- file.path(directory, paste(sprintf("%03d",1:332), ".csv", sep = ""))
         
         for (i in dataPaths) {
                 currentFile <- read.csv(i)

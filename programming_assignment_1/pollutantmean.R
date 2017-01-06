@@ -8,10 +8,9 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
         
         ## 'id' is an integer vector indicating the monitor ID numbers
         ## to be used
-        library(stringr)
         data <- vector()
 
-        dataPaths <- file.path(directory, paste(str_pad(id, 3, "left", "0"), ".csv", sep = ""))
+        dataPaths <- file.path(directory, paste(sprintf("%03d",id), ".csv", sep = ""))
         
         for (i in dataPaths) {
                 currentFile <- read.csv(i)
