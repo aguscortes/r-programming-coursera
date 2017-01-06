@@ -10,5 +10,9 @@ complete <- function(directory, id = 1:332) {
                 currentFile <- read.csv(file.path(directory, paste(sprintf("%03d",i), ".csv", sep = "")))
                 data <- rbind(data, c(i, sum(complete.cases(currentFile))))
         }
-        data
+
+        result <- data.frame(data[1,], data[2,])
+        cnames <- c("id", "nobs") 
+        colnames(result) <- cnames
+        result
 }
